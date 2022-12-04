@@ -21,6 +21,6 @@ cookie = open("./.session", "r").readline().splitlines()[0]
 
 s = requests.session()
 s.cookies.set("session", cookie, domain=".adventofcode.com")
-respons = s.get("https://adventofcode.com/2022/day/4/input")
+respons = s.get("https://adventofcode.com/2022/day/{day}/input")
 
 open(f"{path}/input.txt", "x").write(respons.text)
