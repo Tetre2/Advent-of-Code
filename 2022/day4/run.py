@@ -1,4 +1,4 @@
-f = open("day4.txt", "r")
+f = open("input.txt", "r")
 data = f.readlines()
 
 def generate_range(interval):
