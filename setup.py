@@ -7,7 +7,7 @@ year, _, day = str(date.today()).split("-")
 day = day.lstrip('0')
 path = f"./{year}/day{day}"
 
-print(year, day, path)
+
 
 try:
     os.makedirs(path)
@@ -21,6 +21,8 @@ cookie = open("./.session", "r").readline().splitlines()[0]
 
 s = requests.session()
 s.cookies.set("session", cookie, domain=".adventofcode.com")
-respons = s.get("https://adventofcode.com/{year}/day/{day}/input")
+respons = s.get(f"https://adventofcode.com/{year}/day/{day}/input")
 
 open(f"{path}/input.txt", "x").write(respons.text)
+
+print("Creating directory for day" + str(day))
