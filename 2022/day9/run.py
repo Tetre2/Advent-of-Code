@@ -1,4 +1,4 @@
-f = open('input.txt', 'r')
+f = open('test.txt', 'r')
 data = f.readlines()
 
 size = 1000
