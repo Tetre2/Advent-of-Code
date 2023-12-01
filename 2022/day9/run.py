@@ -5,30 +5,41 @@ size = 1000
 head = (size*size)//2 # in the middle
 tail = (size*size)//2
 
+rope_knots = 10
+knots = []
+for _ in range(rope_knots):
+    knots.append(size//2)
+
 possitions = []
 
 def move(dir):
-    global head
-    global tail
-    new_head = head
+    global knots
+
     if dir == "U":
-        new_head -= size
+        knots[0] -= size
     
     if dir == "D":
-        new_head += size
+        knots[0] += size
 
     if dir == "L":
-        new_head -= 1
+        knots[0] -= 1
     
     if dir == "R":
-        new_head += 1
-            
-    #                       Top row                                        Middle row                                           Bottom row
-    if not ((new_head >= tail - size - 1 and new_head <= tail - size + 1) or (new_head >= tail - 1 and new_head <= tail + 1) or (new_head >= tail + size - 1 and new_head <= tail + size + 1)):
-        tail = head
-        possitions.append(tail)
+        knots[0] += 1
 
-    head = new_head
+    for i, knot in enumerate(knots):
+        if i == 0: continue
+        
+        #                       Top row                                        Middle row                                           Bottom row
+        if not ((knots[i-1] >= knot - size - 1 and knots[i-1] <= knot - size + 1) or (knots[i-1] >= knot - 1 and knots[i-1] <= knot + 1) or (knots[i-1] >= knot + size - 1 and knots[i-1] <= knot + size + 1)):
+            y_change = (knots[i-1] - knot + 1) //size
+            x_change = (knots[i-1] - knot + 1) % size
+            if not y_change == 0: knot += size * (abs(y_change)//y_change)
+            if not x_change == 0: knot += abs(x_change)//x_change
+            
+            if i == rope_knots - 1: 
+                possitions.append(knot)
+
 
 for row in data:
     row = row.strip("\n")

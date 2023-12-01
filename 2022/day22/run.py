@@ -1,3 +1,6 @@
+from copy import deepcopy
+
+
 f = open('/home/tetre/workspace/Advent-of-Code/2022/day22/test.txt', 'r')
 data = f.readlines()
 
@@ -79,10 +82,8 @@ if numb != "":
 
 instructions = ins
 
-print(instructions)
-
 for ins in instructions:
-    print(ins, facing, current_pos)
+    # print(ins, facing, current_pos)
     if isinstance(ins, int):
         for i in range(ins):
             m = move(current_pos)
@@ -100,8 +101,14 @@ res = (1000 * (current_pos[1] + 1)) + (4 * (current_pos[0] + 1))
 
 print(res, facing)
     
-
+tmp = deepcopy(board)
     
+tmp = 2
 
+print(board)
+
+f = open("mask.txt", "a")
+for i in tmp:
+    f.write("".join(i) + '\n')
 
 
