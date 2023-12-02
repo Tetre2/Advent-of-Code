@@ -15,9 +15,9 @@ except:
     print("Directory already exists for today")
     exit()
     
-open(f"{path}/run1star.py", "x").write("f = open('test1star.txt', 'r')\n\ndata = f.readlines()\nt = open('test1star.txt', 'r')\ntestdata = t.readlines()\n\n\nresults = ''\nprint(results)\n")
+open(f"{path}/run1star.py", "x").write("f = open('input.txt', 'r')\ndata = f.readlines()\n\nt = open('test1star.txt', 'r')\ntestdata = t.readlines()\n\nresults = ''\n\n\n\n\nprint(results)\n")
 
-open(f"{path}/run2star.py", "x").write("f = open('test2star.txt', 'r')\n\ndata = f.readlines()\nt = open('test2star.txt', 'r')\ntestdata = t.readlines()\n\n\nresults = ''\nprint(results)\n")
+open(f"{path}/run2star.py", "x").write("f = open('input.txt', 'r')\ndata = f.readlines()\n\nt = open('test2star.txt', 'r')\ntestdata = t.readlines()\n\nresults = ''\n\n\n\n\nprint(results)\n")
 
 open(f"{path}/test1star.txt", "x").write("")
 
