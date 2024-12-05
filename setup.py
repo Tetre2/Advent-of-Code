@@ -2,26 +2,24 @@ import os
 from datetime import date
 from requests import get
 import requests
+import shutil
+
 
 year, _, day = str(date.today()).split("-")
 day = day.lstrip('0')
 path = f"./{year}/day{day}"
-
-
 
 try:
     os.makedirs(path)
 except:
     print("Directory already exists for today")
     exit()
-    
-open(f"{path}/run1star.py", "x").write("f = open('input.txt', 'r')\ndata = f.readlines()\n\nt = open('test1star.txt', 'r')\ntestdata = t.readlines()\n\nresults = ''\n\n\n\n\nprint(results)\n")
 
-open(f"{path}/run2star.py", "x").write("f = open('input.txt', 'r')\ndata = f.readlines()\n\nt = open('test2star.txt', 'r')\ntestdata = t.readlines()\n\nresults = ''\n\n\n\n\nprint(results)\n")
+shutil.copyfile('template.py', f"{path}/run.py")
 
-open(f"{path}/test1star.txt", "x").write("")
+open(f"{path}/part1Sample.txt", "x").write("")
 
-open(f"{path}/test2star.txt", "x").write("")
+open(f"{path}/part2Sample.txt", "x").write("")
 
 cookie = open("./.session", "r").readline().splitlines()[0]
 
