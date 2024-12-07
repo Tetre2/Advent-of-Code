@@ -8,7 +8,6 @@ parser = argparse.ArgumentParser("Setup.py")
 parser.add_argument('-f', '--force', action='store_true')
 parser.add_argument('-d', '--day')
 args = parser.parse_args()
-print(args.force, args.day)
 
 year, _, day = str(date.today()).split("-")
 day = args.day if args.day else day.lstrip('0')
